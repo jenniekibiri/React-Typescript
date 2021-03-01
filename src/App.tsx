@@ -2,7 +2,8 @@ import React, { Component } from "react";
 interface IState {
   story: any;
   stories: any[];
-  name: string
+  
+  loaded: boolean
 }
 
 export class App extends Component<{}, IState> {
@@ -10,18 +11,25 @@ export class App extends Component<{}, IState> {
     super(props)
  this.state = {
     story: '',
-    name: "jenny",
+   loaded: false,
     stories: [],
   };
 
   this.handleSubmit = this.handleSubmit.bind(this)
   }
  
-  
+
   handleSubmit(e: React.FormEvent<HTMLFormElement>) {
    e.preventDefault();
+  const {stories,story}=this.state
+  
+  stories.push({story:story})
+  this.setState({
+    stories,
+    loaded:true
+  })
+ 
 
-  alert(this.state.story)
 
   }
   
@@ -65,25 +73,30 @@ export class App extends Component<{}, IState> {
             The stories goes here...
           </p>
         </div>
+{ this.state.loaded ==true ?(
+ this.state.stories.map((story,i)=>{
 
+    return(
+       <div className="card " key={i}  style={{ width: "48rem" }}>
+          <div className="card-body ">
+            <p className="text-muted">
+             {story.story}
+            </p>
+          </div>
+        </div>
+    )
+  })
+):(
         <div className="card " style={{ width: "48rem" }}>
           <div className="card-body ">
             <p className="text-muted">
-              I woke up at 6 oclock in the morning. We had breakfast and dressed
-              up. Today we all went to Fantasize Amusement park near Pune. We
-              started from home at 7 oclock.
+             Write your diary
             </p>
           </div>
-        </div>
-        <div className="card mt-2 " style={{ width: "48rem" }}>
-          <div className="card-body ">
-            <p className="text-muted">
-              I woke up at 6 oclock in the morning. We had breakfast and dressed
-              up. Today we all went to Fantasize Amusement park near Pune. We
-              started from home at 7 oclock.
-            </p>
-          </div>
-        </div>
+        </div>)
+ 
+}
+      
       </div>
     );
   }

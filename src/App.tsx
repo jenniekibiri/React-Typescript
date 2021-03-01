@@ -66,7 +66,7 @@ export class App extends Component<{}, IState> {
             The stories goes here...
           </p>
         </div>
-        {this.state.loaded == true ? (
+        {this.state.loaded === true ? (
           this.state.stories.map((story, i) => {
             return (
               <div className="card  mb-2" key={i} style={{ width: "48rem" }}>

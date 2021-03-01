@@ -26,11 +26,10 @@ export class App extends Component<{}, IState> {
   stories.push({story:story})
   this.setState({
     stories,
-    loaded:true
+    loaded:true,
+    story:""
   })
  
-
-
   }
   
   handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,7 +45,8 @@ export class App extends Component<{}, IState> {
         <div className="input-group mb-3">
          
           <form onSubmit={this.handleSubmit} >
-           <input
+            <div className="row">
+              <div className="col-md-5">  <input
             type="text"
             className="form-control"
             placeholder="addStory"
@@ -55,13 +55,17 @@ export class App extends Component<{}, IState> {
             onChange={this.handleChange}
             value={this.state.story}
             aria-describedby="basic-addon1"
-          />
-          <input
+          /></div>
+              <div className="col-md-5">  <input
             type="submit"
             className="btn btn-danger"
             value="add"
            
-          />
+          /></div>
+
+        
+            </div>
+         
           
           
           </form>
@@ -77,7 +81,7 @@ export class App extends Component<{}, IState> {
  this.state.stories.map((story,i)=>{
 
     return(
-       <div className="card " key={i}  style={{ width: "48rem" }}>
+       <div className="card  mb-2" key={i}  style={{ width: "48rem" }}>
           <div className="card-body ">
             <p className="text-muted">
              {story.story}

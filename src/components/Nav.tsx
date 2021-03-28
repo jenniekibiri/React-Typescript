@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-
-export class Home extends Component {
+import { Link } from "react-router-dom";
+export class Nav extends Component {
   render() {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <a className="navbar-brand " href="/">
-            Navbar
+            Some dummy Typescript site
           </a>
           <button
             className="navbar-toggler"
@@ -23,19 +23,19 @@ export class Home extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <a className="nav-link" href="/some">
+                <Link to="/home" className="nav-link">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item active">
-                <a className="nav-link" href="/some">
+                <Link className="nav-link" to="/todo">
                   Todo
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/page">
+                <Link className="nav-link" to="/next">
                   next page
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -45,4 +45,4 @@ export class Home extends Component {
   }
 }
 
-export default Home;
+export default Nav;

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Nav from './Nav';
 
-import Next from "./Next";
+import  { openWeather } from "./openWeather";
 import Todo from "./Todo";
 export class MainRouter extends Component {
     render() {
@@ -12,7 +12,7 @@ export class MainRouter extends Component {
               <Nav/>
               <Switch>
                 <Route path="/todo" exact component={Todo} />
-                <Route path="/next" component={Next} />
+                <Route path="/openweather" component={openWeather} />
               </Switch>
             </BrowserRouter>
           </div>

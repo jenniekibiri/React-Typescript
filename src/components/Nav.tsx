@@ -5,7 +5,7 @@ export class Nav extends Component {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a className="navbar-brand " href="/">
+          <a className="navbar-brand mr-5" href="/">
             Some dummy Typescript site
           </a>
           <button
@@ -33,8 +33,8 @@ export class Nav extends Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/next">
-                  next page
+                <Link className="nav-link" to="/openweather">
+                  open Weather
                 </Link>
               </li>
             </ul>
